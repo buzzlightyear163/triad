@@ -1,0 +1,27 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="base.css">
+<style>
+body { width: 400px; height: 400px; }
+.sheet { width: 400px; height: 400px; display: grid; place-items: center; }
+.dark { background: var(--ink); }
+.mark { display: flex; gap: 17px; }
+.barp { display: grid; grid-template-columns: repeat(3, 14px); grid-auto-rows: 14px; gap: 3px; }
+.barp i { width: 14px; height: 14px; border-radius: 2px; }
+</style></head><body>
+<div class="sheet" id="s"><div class="mark" id="m"></div></div>
+<script>
+const dark = new URLSearchParams(location.search).get('v') !== 'light';
+const fg = dark ? '#F2F0E6' : '#18402D';
+document.getElementById('s').classList.toggle('dark', dark);
+const m = document.getElementById('m');
+for (let b = 0; b < 5; b++) {
+  const bar = document.createElement('div'); bar.className = 'barp';
+  for (let y = 0; y < 9; y++) for (let x = 0; x < 3; x++) {
+    const i = document.createElement('i');
+    const filled = b < 3;
+    const edge = x === 0 || x === 2 || y === 0 || y === 8;
+    i.style.background = (filled || edge) ? fg : 'transparent';
+    bar.appendChild(i);
+  }
+  m.appendChild(bar);
+}
+</script></body></html>

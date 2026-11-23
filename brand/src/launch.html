@@ -1,0 +1,43 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="base.css">
+<style>
+body { width: 1600px; height: 900px; }
+.sheet { width: 1600px; height: 900px; background-image: repeating-linear-gradient(to bottom, transparent 0 90px, var(--band) 90px 180px); }
+.top { position: absolute; left: 96px; top: 84px; display: flex; align-items: center; gap: 22px; }
+.brand { display: flex; align-items: center; gap: 12px; font-weight: 700; font-size: 28px; letter-spacing: 0.02em; }
+.mk { display: flex; gap: 3px; } .mk i { width: 8px; height: 22px; background: var(--ink); border-radius: 1.5px; } .mk i.o { background: transparent; box-shadow: inset 0 0 0 2px var(--ink); }
+.live { font-family: var(--mono); font-size: 19px; font-weight: 600; background: var(--ink); color: var(--paper); padding: 7px 14px 7px 12px; display: flex; align-items: center; gap: 10px; letter-spacing: 0.08em; }
+.live i { width: 10px; height: 10px; background: #8FD19E; display: block; }
+h1 { position: absolute; left: 94px; top: 190px; width: 760px; font-size: 92px; line-height: 0.97; font-weight: 600; letter-spacing: -0.04em; }
+.sub { position: absolute; left: 98px; top: 510px; width: 640px; font-size: 27px; line-height: 1.35; }
+.tick { position: absolute; left: 98px; bottom: 84px; font-family: var(--mono); font-size: 44px; font-weight: 600; letter-spacing: -0.02em; }
+.slip { position: absolute; right: 120px; top: 96px; width: 560px; background: #FBFAF4; border: 1.5px solid rgba(24,64,45,0.2); padding: 34px 38px 46px; font-family: var(--mono); font-size: 21px; transform: rotate(1.6deg); box-shadow: 0 18px 40px -26px rgba(24,64,45,0.45);
+  -webkit-mask: linear-gradient(#000 0 0) top/100% calc(100% - 12px) no-repeat, conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) bottom/24px 12px repeat-x; }
+.ln { display: flex; gap: 10px; line-height: 1.85; }
+.ln span:nth-child(2) { flex: 1; border-bottom: 2px dotted rgba(24,64,45,0.35); transform: translateY(-8px); }
+.h { font-weight: 600; }
+.rule { border-top: 2px solid var(--ink); margin: 12px 0; }
+.tot { font-weight: 600; font-size: 27px; border-top: 3px solid var(--ink); margin-top: 14px; padding-top: 12px; }
+.stamp { position: absolute; right: 168px; top: 640px; transform: rotate(-9deg); border: 4px solid var(--ink); color: var(--ink); font-family: var(--mono); font-weight: 600; font-size: 25px; letter-spacing: 0.12em; padding: 12px 20px; text-align: center; line-height: 1.25; background: rgba(242,240,230,0.85); }
+</style></head><body>
+<div class="sheet">
+  <div class="holes l"></div><div class="holes r"></div>
+  <div class="top"><div class="brand"><span class="mk"><i></i><i></i><i></i><i class="o"></i><i class="o"></i></span>AGREE</div><div class="live"><i></i>LIVE</div></div>
+  <h1>An AI wrote this consensus protocol in a day.</h1>
+  <div class="sub">AGREE is the first public network running it. Watch it agree, write to it, crash it.</div>
+  <div class="tick">$AGREE</div>
+  <div class="slip">
+    <div class="ln h"><span>AI‑GREEMENT</span><span></span><span>discovery run</span></div>
+    <div class="rule"></div>
+    <div class="ln"><span>papers read</span><span></span><span>22</span></div>
+    <div class="ln"><span>search rounds</span><span></span><span>20</span></div>
+    <div class="ln"><span>tokens, total</span><span></span><span>778.45 M</span></div>
+    <div class="ln"><span>lines of Lean</span><span></span><span>~135,000</span></div>
+    <div class="ln"><span>wall clock</span><span></span><span>~24 h</span></div>
+    <div class="rule"></div>
+    <div class="ln"><span>result</span><span></span><span>A‑GREEMENT</span></div>
+    <div class="ln"><span>safety</span><span></span><span>proved in Lean</span></div>
+    <div class="ln tot"><span>TOTAL</span><span></span><span>$198.69</span></div>
+  </div>
+  <div class="stamp">NOW RUNNING<br>ON AGREE</div>
+</div>
+</body></html>

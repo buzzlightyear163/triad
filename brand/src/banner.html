@@ -1,0 +1,31 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="base.css">
+<style>
+body { width: 1500px; height: 500px; }
+.sheet { width: 1500px; height: 500px; background-image: repeating-linear-gradient(to bottom, transparent 0 84px, var(--band) 84px 168px); }
+h1 { position: absolute; left: 74px; top: 62px; font-size: 64px; line-height: 0.98; font-weight: 600; letter-spacing: -0.035em; }
+.k { position: absolute; left: 77px; top: 268px; font-family: var(--mono); font-size: 16px; line-height: 1.6; }
+.print { position: absolute; left: 640px; right: 64px; top: 0; height: 402px; overflow: hidden; background: var(--paper); border-left: 1.5px dashed rgba(24,64,45,0.22); padding-left: 26px; }
+.now { position: absolute; left: 640px; right: 64px; top: 402px; border-top: 1.6px solid var(--ink); padding-left: 26px; }
+.labels { display: grid; font-family: var(--mono); font-size: 14px; font-weight: 500; padding-top: 12px; }
+.labels span { text-align: center; }
+.labels b { display: inline-block; width: 22px; height: 22px; border-radius: 50%; border: 1.6px solid var(--ink); font-size: 11px; line-height: 19px; margin-bottom: 4px; }
+.labels b.L { background: var(--ink); color: var(--paper); }
+.pad { padding-left: 16px; }
+.nowt { position: absolute; left: 600px; top: 384px; font-family: var(--mono); font-size: 13px; }
+</style></head><body>
+<div class="sheet">
+  <div class="holes r"></div>
+  <h1>Consensus,<br>written by<br>a machine.</h1>
+  <div class="k">the first public network running A‑GREEMENT</div>
+  <div class="print"><div class="rows" id="rows" style="position:absolute;bottom:0;left:26px;right:0"></div></div>
+  <div class="now"><div class="labels" id="labels"></div></div>
+</div>
+<script type="module">
+import { rowsHTML } from './rows.js';
+const rows = await fetch('rows.json').then(r => r.json());
+const o = { cols: '78px 84px 330px 1fr', rh: 30, fs: 15, lane: 66, g: 17, barDots: 26, dot: 5, fade: true };
+document.getElementById('rows').innerHTML = rowsHTML(rows.slice(-14), o);
+document.getElementById('labels').style.gridTemplateColumns = o.cols;
+document.getElementById('labels').innerHTML = `<span></span><span></span><span style="display:grid;grid-template-columns:repeat(5,66px)">${['fra','lon','nyc','gru','tyo'].map((c,i)=>`<span><b class="${i===1?'L':''}">${i===1?'L':['q','','q','·','·'][i]||'q'}</b><br>${c}</span>`).join('')}</span><span style="text-align:left;padding-left:6px;font-weight:400">any three decide</span>`;
+document.body.dataset.ready = 1;
+</script></body></html>
