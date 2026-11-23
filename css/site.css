@@ -48,13 +48,14 @@ button { font: inherit; color: inherit; }
 .faint { color: var(--ink-3); }
 
 /* ---------- headers ---------- */
-.hdr { position: fixed; z-index: 30; top: 0; left: 0; width: 40%; min-width: 360px; padding: 18px 22px 16px 40px; background: linear-gradient(var(--paper) 72%, rgba(242,240,230,0)); display: flex; align-items: center; gap: 22px; pointer-events: none; }
+.hdr { position: fixed; z-index: 30; top: 0; left: 0; width: 40%; min-width: max-content; padding: 18px 22px 16px 40px; background: linear-gradient(var(--paper) 72%, rgba(242,240,230,0)); display: flex; align-items: center; gap: 22px; pointer-events: none; }
 .hdr > * { pointer-events: auto; }
 .brand { display: inline-flex; align-items: center; gap: 9px; text-decoration: none; font-weight: 700; letter-spacing: 0.02em; font-size: 16px; }
 .mark { display: inline-flex; gap: 2px; }
 .mark i { width: 5px; height: 12px; border-radius: 1px; background: var(--ink); display: block; }
 .mark i.o { background: transparent; box-shadow: inset 0 0 0 1.4px var(--ink); }
 .nav { display: flex; gap: 18px; flex-wrap: wrap; align-items: center; }
+.hdr .nav { flex-wrap: nowrap; white-space: nowrap; }
 .nav a, .nav button { text-decoration: none; background: none; border: 0; padding: 0; cursor: pointer; font-size: 15px; }
 .nav a:hover, .nav button:hover { text-decoration: underline; text-underline-offset: 4px; }
 .snd small { font-family: var(--mono); font-size: 12px; margin-left: 4px; }
