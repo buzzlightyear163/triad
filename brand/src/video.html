@@ -1,0 +1,74 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="base.css">
+<script>window.VT = 0; performance.now = () => window.VT; window.requestAnimationFrame = () => 0;</script>
+<style>
+body { width: 1920px; height: 1080px; }
+.sheet { width: 1920px; height: 1080px; background-image: repeating-linear-gradient(to bottom, transparent 0 90px, var(--band) 90px 180px); }
+.holes { width: 40px; background-size: 100% 36px; }
+.layer { position: absolute; inset: 0; opacity: 0; }
+.pl { display: block; position: relative; white-space: nowrap; width: max-content; }
+.pl .tx { display: inline-block; }
+.pl .hd { position: absolute; top: 12%; width: 16px; height: 76%; background: var(--ink); }
+/* s1 */
+#s1 .lines { position: absolute; left: 150px; top: 250px; font-size: 104px; font-weight: 600; letter-spacing: -0.04em; line-height: 1.08; }
+/* s2 */
+#s2 .cap { position: absolute; left: 150px; top: 150px; font-size: 76px; font-weight: 600; letter-spacing: -0.035em; width: 560px; line-height: 1.02; }
+#s2 .slip { position: absolute; left: 820px; top: 120px; width: 900px; background: #FBFAF4; border: 2px solid rgba(24,64,45,0.2); padding: 46px 54px 60px; font-family: var(--mono); font-size: 34px; box-shadow: 0 24px 60px -34px rgba(24,64,45,0.5); transform: rotate(1.2deg); }
+.ln { display: flex; gap: 14px; line-height: 1.85; opacity: 0; }
+.ln span:nth-child(2) { flex: 1; border-bottom: 3px dotted rgba(24,64,45,0.35); transform: translateY(-12px); }
+.ln.h { font-weight: 600; }
+.rule { border-top: 3px solid var(--ink); margin: 14px 0; opacity: 0; }
+.ln.tot { font-weight: 600; font-size: 50px; border-top: 4px solid var(--ink); margin-top: 18px; padding-top: 16px; }
+#s2 .stamp { position: absolute; left: 156px; top: 560px; border: 6px solid var(--ink); font-family: var(--mono); font-weight: 600; font-size: 40px; letter-spacing: 0.12em; padding: 16px 28px; text-align: center; line-height: 1.2; background: rgba(242,240,230,0.92); opacity: 0; }
+/* s3/s4 */
+#cv { position: absolute; left: 860px; top: 0; width: 1060px; height: 1080px; opacity: 0; }
+#s3 h2, #s4 h2 { position: absolute; left: 130px; top: 230px; font-size: 118px; font-weight: 600; letter-spacing: -0.045em; line-height: 0.98; width: 700px; }
+#s3 .sub { position: absolute; left: 134px; top: 530px; width: 640px; font-size: 36px; line-height: 1.35; }
+#s3 .k { position: absolute; left: 134px; top: 720px; font-family: var(--mono); font-size: 27px; line-height: 1.7; }
+#s4 h2 { color: var(--red); }
+#s4 .ev { position: absolute; left: 134px; top: 520px; width: 680px; font-family: var(--mono); font-size: 27px; line-height: 1.5; list-style: none; }
+#s4 .ev li { margin-bottom: 18px; opacity: 0; }
+#s4 .ev li.f { color: var(--red); }
+/* s5 */
+#s5 .wrap { position: absolute; left: 0; right: 0; top: 230px; text-align: center; }
+#s5 .mk { display: inline-flex; gap: 24px; }
+#s5 .mk .b { display: grid; grid-template-columns: repeat(3, 20px); grid-auto-rows: 20px; gap: 5px; }
+#s5 .mk i { display: block; width: 20px; height: 20px; border-radius: 3px; }
+#s5 .wm { font-size: 250px; font-weight: 700; letter-spacing: -0.06em; line-height: 0.9; margin-top: 40px; }
+#s5 .tg { font-size: 52px; font-weight: 500; letter-spacing: -0.02em; margin-top: 26px; }
+#s5 .row { display: inline-flex; gap: 28px; align-items: center; margin-top: 46px; font-family: var(--mono); font-size: 40px; font-weight: 600; }
+#s5 .live { background: var(--ink); color: var(--paper); padding: 10px 22px 10px 18px; display: inline-flex; align-items: center; gap: 14px; letter-spacing: 0.08em; font-size: 32px; }
+#s5 .live i { width: 14px; height: 14px; background: #8FD19E; display: block; }
+</style></head><body>
+<div class="sheet">
+  <div class="holes l"></div><div class="holes r"></div>
+  <div class="layer" id="s1"><div class="lines">
+    <span class="pl" data-a="0.35" data-d="0.85"><span class="tx">An AI agent read</span></span>
+    <span class="pl" data-a="1.2" data-d="0.8"><span class="tx">22 consensus papers,</span></span>
+    <span class="pl" data-a="2.1" data-d="0.8"><span class="tx">designed a protocol,</span></span>
+    <span class="pl" data-a="3.0" data-d="0.45"><span class="tx">built it,</span></span>
+    <span class="pl" data-a="3.6" data-d="0.75"><span class="tx">and proved it safe.</span></span>
+  </div></div>
+  <div class="layer" id="s2">
+    <div class="cap">About 24 hours.<br>The bill:</div>
+    <div class="slip" id="slip"></div>
+    <div class="stamp" id="stamp">NOW RUNNING<br>ON AGREE</div>
+  </div>
+  <canvas id="cv"></canvas>
+  <div class="layer" id="s3">
+    <h2>$AGREE<br>is live.</h2>
+    <div class="sub">The first public network running A‑GREEMENT.</div>
+    <div class="k">five replicas · any three decide<br>every operation, printed as it's agreed</div>
+  </div>
+  <div class="layer" id="s4">
+    <h2>Crash the<br>leader.</h2>
+    <ul class="ev" id="ev"></ul>
+  </div>
+  <div class="layer" id="s5"><div class="wrap">
+    <div class="mk" id="mk"></div>
+    <div class="wm">AGREE</div>
+    <div class="tg">Consensus, written by a machine.</div>
+    <div class="row"><span class="live"><i></i>LIVE</span><span>$AGREE</span></div>
+  </div></div>
+</div>
+<script type="module" src="video.js"></script>
+</body></html>
